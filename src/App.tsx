@@ -1,9 +1,8 @@
-import React from 'react';
-import './app.scss';
-import store from './store'
+import React from 'react'
+import './app.scss'
 import {useDispatch} from 'react-redux'
-import Main from './components/main/Main';
-import { addItem } from './actions/cart';
+import Main from './components/main/Main'
+import { addItem } from './actions/cart'
 
 function App() {
 

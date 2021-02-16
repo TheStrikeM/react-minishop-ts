@@ -1,8 +1,7 @@
 import React from 'react'
-import { changeLoading, fetchItems, setItems } from '../../actions/shop'
-import {useSelector} from 'react-redux'
-import axios from 'axios'
-
+import { fetchItems } from '../../actions/shop'
+import { useSelector } from 'react-redux'
+import './main.sass'
 
 function Product({name, price, isArchive, onAdd}: {
     name: string,
@@ -15,7 +14,7 @@ function Product({name, price, isArchive, onAdd}: {
         <div className="product">
             <div className="product__name">{`Название ${name}`}</div>
             <div className="product__price">{`${price} долларов`}</div>
-            <div className="product__acrchive">{isArchive}</div>
+            <div className="product__archive">{isArchive}</div>
             <div onClick={() => onAdd(name, price, isArchive)} className="product__button">Add</div>
         </div>
     )
@@ -33,7 +32,7 @@ function Main({dispatch, onAdd}: any) {
     return (
         <div>
             <div className="products">
-                {state.products.map((el: any) => (<Product key={el.id} onAdd={el.onAdd} name={el.name} price={el.price} isArchive={el.isArchive} />))}
+                {state.products.map((el: any) => (<Product onAdd={onAdd} name={el.name} price={el.price} isArchive={el.isArchive} />))}
             </div>
         </div>
     )

@@ -1,14 +1,4 @@
-interface IInitialState {
-    products: Array<{
-        id: number,
-        name: string,
-        price: number,
-        isArchive: boolean,
-    }>,
-    isLoading: boolean
-}
-
-const initialState: IInitialState = {
+const initialState = {
     products: [],
     isLoading: false
 }
@@ -18,8 +8,8 @@ export default (state = initialState, { type, payload }: any) => {
 
     case "SET_PRODUCTS":
         return { 
-            ...state, 
-            products: [...state.products + payload],
+            ...state,
+            products: payload,
             isLoading: true
         }
     
