@@ -5,6 +5,7 @@ export const fetchItems = (dispatch: any) => {
     
     axios.get("http://localhost:1111/items").then(({ data }) => {
         dispatch(setItems(data))
+        console.log("Данные получены:", data)
         dispatch(changeLoading(true))
 
         console.log("Success data")

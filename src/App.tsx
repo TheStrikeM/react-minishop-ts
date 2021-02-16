@@ -1,7 +1,7 @@
 import React from 'react';
 import './app.scss';
 import store from './store'
-import {Provider, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import Main from './components/main/Main';
 import { addItem } from './actions/cart';
 
@@ -14,13 +14,11 @@ function App() {
   }
 
   return (
-    <Provider store={store}>
-      <div className="app">
-        <Main dispatch={dispatch} onAdd={(name: string, price: number, isArchive: boolean) => {
+    <div className="app">
+      <Main dispatch={dispatch} onAdd={(name: string, price: number, isArchive: boolean) => {
           onAdd(name, price, isArchive)
-        }} />
-      </div>
-    </Provider>
+      }} />
+    </div>
   );
 }
 
