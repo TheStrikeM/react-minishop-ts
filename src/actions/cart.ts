@@ -9,7 +9,11 @@ export const addItem = (payload: IPayload) => ({
     payload: payload
 })
 
-export const deleteItem = ({name, price}: {name: string, price: number}) => ({
-    type: "DELETE_ITEM",
-    payload: {name, price}
+export const removeItem = ({name, price, isArchive}: IPayload) => ({
+    type: "REMOVE_ITEM",
+    payload: {
+        name,
+        price,
+        isArchive
+    }
 })
