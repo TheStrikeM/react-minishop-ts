@@ -1,5 +1,5 @@
 import React from 'react'
-import './app.scss'
+import './app.sass'
 import {useDispatch} from 'react-redux'
 import Main from './components/main/Main'
 import { addItem } from './actions/cart'
@@ -17,6 +17,10 @@ function App() {
   return (
     <div className="app">
       <Router>
+        <div className="links">
+          <Link to="/">Главное</Link>
+          <Link to="/cart">Корзина</Link>
+        </div>
         <Route exact path="/">
           <Main dispatch={dispatch} onAdd={(name: string, price: number, isArchive: boolean) => {
               onAdd(name, price, isArchive)
