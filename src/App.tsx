@@ -7,9 +7,10 @@ import { addItem } from './actions/cart'
 function App() {
 
   const dispatch = useDispatch()
+
   const onAdd = (name: string, price: number, isArchive: boolean) => {
     const result = {name, price, isArchive}
-    addItem(result)
+    dispatch(addItem({name, price, isArchive}))
   }
 
   return (

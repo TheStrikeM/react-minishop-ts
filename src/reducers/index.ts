@@ -7,4 +7,4 @@ const rootReducer = combineReducers({
     shop
 })
 
-export default rootReducer;
+export default rootReducer
