@@ -14,19 +14,22 @@ function Product({name, price, isArchive}: {
             <div className="product__name">{name}</div>
             <div className="product__price">{`${price} долларов`}</div>
             <div className="product__acrchive">{isArchive}</div>
+            .product
         </div>
     )
 }
 
-function Main() {
+function Main({dispatch}: any) {
+    const state = useSelector(({shop}: any) => ({
+        products: shop.products,
+    }))
 
-    const dispatch = useDispatch()
-    const state = useSelector(state => state.shop)
     fetchItems(dispatch)
 
     return (
         <div>
             <div className="products">
+                {state.products.map(el => (<Product name={el.name} price={el.price} isArchive={el.isArchive} />))}
             </div>
         </div>
     )
