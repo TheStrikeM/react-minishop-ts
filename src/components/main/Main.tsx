@@ -3,10 +3,11 @@ import { fetchItems } from '../../actions/shop'
 import {useDispatch, useSelector} from 'react-redux'
 
 
-function Product({name, price, isArchive}: {
+function Product({name, price, isArchive, onAdd}: {
     name: string,
     price: number,
     isArchive: boolean,
+    onAdd: any
 }) {
 
     return (
@@ -14,12 +15,12 @@ function Product({name, price, isArchive}: {
             <div className="product__name">{name}</div>
             <div className="product__price">{`${price} долларов`}</div>
             <div className="product__acrchive">{isArchive}</div>
-            .product
+            <div onClick={() => onAdd(name, price, isArchive)} className="product__button">Add</div>
         </div>
     )
 }
 
-function Main({dispatch}: any) {
+function Main({dispatch, onAdd}: any) {
     const state = useSelector(({shop}: any) => ({
         products: shop.products,
     }))
@@ -29,7 +30,7 @@ function Main({dispatch}: any) {
     return (
         <div>
             <div className="products">
-                {state.products.map(el => (<Product name={el.name} price={el.price} isArchive={el.isArchive} />))}
+                {state.products.map((el: any) => (<Product onAdd={el.onAdd} name={el.name} price={el.price} isArchive={el.isArchive} />))}
             </div>
         </div>
     )

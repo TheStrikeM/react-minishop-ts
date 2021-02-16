@@ -1,8 +1,6 @@
 interface IPayload {
-    id: number,
     name: string,
     price: number,
-    grams: number,
     isArchive: boolean,
 }
 
