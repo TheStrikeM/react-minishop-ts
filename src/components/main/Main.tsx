@@ -2,6 +2,7 @@ import React from 'react'
 import { fetchItems } from '../../actions/shop'
 import { useSelector } from 'react-redux'
 import './main.sass'
+import gsap, {Bounce} from 'gsap'
 
 function Product({name, price, isArchive, onAdd}: {
     name: string,
@@ -27,7 +28,10 @@ function Main({dispatch, onAdd}: any) {
 
     React.useEffect(() => {
         fetchItems(dispatch)
+        tl.from('.product', {x: -400, rotate: 360, duration: 2, ease: Bounce.easeOut})
     }, [])
+
+    const tl = gsap.timeline({ default: {duration: 1}});
 
     return (
         <div>

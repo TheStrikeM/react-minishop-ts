@@ -1,0 +1,54 @@
+.cart
+    display: flex
+    align-items: center
+    flex-direction: column
+    row-gap: 40px
+
+    .totals
+        display: flex
+        align-items: center
+        justify-content: center
+        column-gap: 20px
+        &__count
+            font-size: 40px
+            padding: 20px
+            background: blue
+            color: white
+        &__price
+            font-size: 40px
+            padding: 20px
+            background: green
+            color: white
+
+    &__items
+        display: flex
+        justify-content: center
+        flex-direction: row
+        align-items: center
+        column-gap: 20px
+        row-gap: 20px
+
+        .citem
+            padding: 15px
+            background: red
+
+            &__name
+                color: white
+                font-size: 20px
+                width: 50px
+
+            &__price
+                color: green
+                font-size: 20px
+
+            &__isArchive
+                color: red
+                font-size: 25px
+
+            &__delete
+                margin-top: 80px
+                background: white
+                color: black
+                padding: 10px
+                font-size: 20px
+                cursor: pointer

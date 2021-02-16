@@ -30,6 +30,14 @@ export default (state = initialState, {type, payload}: any) => {
             totalPrice: state.totalPrice + payload.price
         }
 
+    case "DELETE_ITEM":
+        return { 
+            ...state,
+            items: state.items.filter(item => item.name !== payload.name),
+            totalCount: state.totalCount - 1,
+            totalPrice: state.totalPrice - payload.price           
+        }
+
     default:
         return state
     }
