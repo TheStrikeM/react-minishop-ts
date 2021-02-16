@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './app.scss';
+import gsap, {Bounce} from 'gsap';
 
 function App() {
+
+  let images: any = React.useRef(null)
+  const tl = gsap.timeline({ defaults: { duration: 1 }})
+  const block = gsap.to('.block', {
+    duration: 4,
+    x: 1200,
+    rotate: 360, 
+    ease: Bounce.easeOut,
+    paused: true
+  });
+
+  React.useEffect(() => {
+    tl.from('.block', {x: -100, y: -100, opacity: 0, rotate: 360, ease: Bounce.easeOut})
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="block"></div>
+      <div className="buttons">
+        <div onClick={() => block.play()} className="buttons__item">Старт</div>
+        <div onClick={() => block.pause()} className="buttons__item">Пауза</div>
+        <div onClick={() => block.resume()} className="buttons__item">Продолжить</div>
+        <div onClick={() => block.restart()} className="buttons__item">Рестарт</div>
+        <div onClick={() => block.reverse()} className="buttons__item">Наоборот</div>
+      </div>
     </div>
   );
 }

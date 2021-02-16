@@ -1,0 +1,27 @@
+.app {
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .block {
+        width: 100px;
+        height: 100px;
+        background: #ff5050;
+        border-radius: 15px;
+        align-self: start;
+    }
+
+    .buttons {
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+
+        &__item {
+            padding: 10px 20px;
+            background-color: #ff5050;
+            cursor: pointer;
+        }
+    }
+}
